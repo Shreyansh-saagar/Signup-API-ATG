@@ -1,0 +1,5 @@
+signup -> email, fav food(as verification question) and password 
+
+signin -> email & password
+
+forgot password -> email then if matched with exsisting data then give permission to update password.

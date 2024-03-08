@@ -1,0 +1,141 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "version":"1.0.0",
+        "description":"For internship with ATG task 1.",
+        "title":"User Signup API ATG"
+    },
+    "servers":[
+        {
+            "url":"http://localhost:5200"
+        }
+    ],
+    "paths":{
+        "/api/user/":{
+            "get":{
+                "tags":["Users"],
+                "summary":"welcome users to ATG signup",
+                "description":"To welcome users to ATG signup API endpoint with message -> (Welcome to the user api ATG.).",
+                "responses":{
+                    "200":{
+                        "description":"OK"
+                    },
+                    "500":{
+                        "description":"Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/user/signup":{
+            "post":{
+                "tags":["Users"],
+                "summary":"To Register the user with ATG application.",
+                "description":"User SignUp to register the user with ATG application for signIn.",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                            "type":"object",
+                            "properties":{
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type":"string"
+                                },
+                                "fav_food":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                } 
+            },
+            "responses":{
+                "201":{
+                    "description":"Created"
+                },
+                "400":{
+                    "description":"Bad Request"
+                },
+                "500":{
+                    "description":"Internal Server Error"
+                }
+            }
+            }
+        },
+        "/api/user/signin":{
+            "post":{
+                "tags":["Users"],
+                "summary":"To login the user with ATG application.",
+                "description":"User can fill up credentials with they have registered to ATG application for login.",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                            "type":"object",
+                            "properties":{
+                                "email":{
+                                    "type":"string"
+                                },
+                                "password":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                } 
+            },
+            "responses":{
+                "200":{
+                    "description":"Ok"
+                },
+                "400":{
+                    "description":"Incorrect Credentials"
+                },
+                "500":{
+                    "description":"Internal Server Error"
+                }
+            }
+            }
+        },
+        "/api/user/forgotPassword":{
+            "post":{
+                "tags":["Users"],
+                "summary":"To reset the user password if they forgot it.",
+                "description":"User can fill up credentials and then if the credentials to verify user identity is correct then the old password will get updated with new password and after that user can login with new password to ATG application.",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                            "type":"object",
+                            "properties":{
+                                "email":{
+                                    "type":"string"
+                                },
+                                "new_password":{
+                                    "type":"string"
+                                },
+                                "fav_food":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                } 
+            },
+            "responses":{
+                "201":{
+                    "description":"Updated"
+                },
+                "400":{
+                    "description":"No such user found"
+                },
+                "500":{
+                    "description":"Internal Server Error"
+                }
+            }
+            }
+        }
+    }
+}
